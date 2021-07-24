@@ -1,0 +1,199 @@
+using System.Configuration;
+using System.Collections.Specialized;
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+
+namespace Lesson_9
+{
+    class TakeAll
+    {
+        public int take { get; set; }
+        public string[] againTake { get; set; }
+        
+    }
+    class Program
+    {
+        
+        static void Main(string[] args)
+        {
+            
+            string sAttr = ConfigurationManager.AppSettings.Get("Key0");
+
+            int FirstNum = Convert.ToInt32(sAttr);
+            
+            
+
+            TakeAll takeAll = new TakeAll();
+            int count=0;
+            int CounForPage = 0;
+            string NamePath = "D:\\f";
+            //Console.WriteLine("[1],[2],[3]");
+            int NumFaile = 10;
+            string[] AllMenu = Directory.GetFileSystemEntries(NamePath, "*", SearchOption.AllDirectories);
+
+            for (int i = 0; i < AllMenu.Length; i++)
+            {
+
+                takeAll.take = CounForPage++;
+            }
+
+            int NumOfPage = takeAll.take / NumFaile;
+
+            for (int i =0 ; i < NumOfPage; )
+            {
+                i++;
+
+                Console.Write($"[{i}]" + " ");
+
+
+                 takeAll.againTake = new string[i]  ;
+
+            }
+        
+            //вот тут проблема 
+            for (int i = 0; i < takeAll.againTake.Length; i++)
+            {
+                for (int j = 0; j < AllMenu.Length; j++)
+                {
+
+                    Console.WriteLine($"{count++} {takeAll.againTake[i] = AllMenu[j]}");
+                    if (count >= FirstNum)
+                    {
+
+                        break;
+                    }
+                    Console.WriteLine();
+                }
+
+
+            }
+          
+
+            ConsoleKeyInfo keyinfo;
+           
+
+            keyinfo = Console.ReadKey();
+
+            //if (AllMenu.Length > FirstNum)
+            //{
+                if (/*num == 2 && AllMenu.Length > (FirstNum+10)*/keyinfo.Key == ConsoleKey.D1)
+                {
+
+                    for (int i = 0; i < AllMenu.Length; i++)
+                    {
+
+                        Console.WriteLine($"{count++} {AllMenu[i]}");
+                        if (count >= FirstNum)
+                        {
+
+                            Console.WriteLine("последняя позиция " + count);
+
+                            break;
+                        }
+                    }
+
+                    
+                }
+                
+               
+                if (/*num == 2 && AllMenu.Length > (FirstNum+10)*/keyinfo.Key == ConsoleKey.D2)
+                {
+                    if(keyinfo.Key == ConsoleKey.D2)
+                    {
+                        Console.Clear();
+                    }
+                   
+                    count += 10;
+
+                    for (int j = 9; j < AllMenu.Length; j++)
+                    {
+
+                        Console.WriteLine($"{count++} {AllMenu[j++]}");
+                        if (count >= 20)
+                        {
+                            break;
+                        }
+                    }
+                }
+               
+                if (/*num == 3 && AllMenu.Length >( FirstNum + 20)*/keyinfo.Key == ConsoleKey.D3)
+                {
+                    count += 20;
+
+                    for (int j = 19; j < AllMenu.Length; j++)
+                    {
+
+                        Console.WriteLine($"{count++} {AllMenu[j++]}");
+                        if (count >= 30)
+                        {
+                            break;
+                        }
+                    }
+                }
+
+
+
+
+
+               
+                Console.WriteLine("C-copy");
+                Console.WriteLine("D-delte");
+                Console.WriteLine("I-Information");
+
+                keyinfo = Console.ReadKey();
+                //string chooise = Console.ReadLine();
+                if (keyinfo.Key == ConsoleKey.I)
+                {
+                    Console.WriteLine("Выбирите фаил для получения информации(нажмите на цифру )");
+                    int againNum = Convert.ToInt32(Console.ReadLine());
+                    FileInfo file = new FileInfo(AllMenu[againNum]);
+                    try
+                    {
+                        Console.WriteLine($"{file.Length} размер  kb");
+                        Console.WriteLine(File.GetAttributes(AllMenu[againNum]));
+
+
+                    }
+                    catch (FileNotFoundException)
+                    {
+                        Console.WriteLine(File.GetAttributes(AllMenu[againNum]));
+                    }
+
+                }
+
+                if (keyinfo.Key == ConsoleKey.C)
+                {
+                    Console.WriteLine("вибирите куда копирем(нажмите на число)");
+                    int num = Convert.ToInt32(Console.ReadLine());
+                    Console.WriteLine("вибирите что копируем");
+                    int num2 = Convert.ToInt32(Console.ReadLine());
+
+                    string add = Path.GetFileName(AllMenu[num2]);
+                    Console.WriteLine($"{AllMenu[num2]}");
+                    Console.WriteLine($"копируем в папку   {AllMenu[num]} элемент {AllMenu[num2]}");
+                    //string path1=Path.Combine(AllMenu[num],add);
+
+                    // File.Move(AllMenu[num2], Path.Combine(AllMenu[num], add));
+                    try
+                    {
+
+                        File.Copy(AllMenu[num2], AllMenu[num]);
+                    }
+                    catch (IOException)
+                    {
+                        Directory.Move(AllMenu[num2], AllMenu[num]);
+                    }
+                }
+
+
+                if (keyinfo.Key == ConsoleKey.D)
+                {
+                    Console.WriteLine("выберите файл который надо удалить ");
+                    int num1 = Convert.ToInt32(Console.ReadLine());
+                    File.Delete(AllMenu[num1]);
+                }
