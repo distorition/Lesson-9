@@ -1,0 +1,8 @@
+
+IndexOutOfRangeException находиться в не границы массива 10.08.2021 15:48:19
+IndexOutOfRangeException находиться в не границы массива 10.08.2021 15:49:24
+IndexOutOfRangeException находиться в не границы массива 10.08.2021 15:49:26
+IndexOutOfRangeException находиться в не границы массива 10.08.2021 15:49:27
+IndexOutOfRangeException находиться в не границы массива 10.08.2021 15:52:30
+IndexOutOfRangeException находиться в не границы массива 10.08.2021 15:52:32
+IndexOutOfRangeException находиться в не границы массива 10.08.2021 15:55:03
