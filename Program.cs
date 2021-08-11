@@ -106,71 +106,7 @@ namespace Lesson_9
 
             NewMethod1(takeAll, AllMenu);
 
-            //ConsoleKeyInfo keyinfo;
-
-
-            //keyinfo = Console.ReadKey();
-
-
-            //Console.WriteLine("C-copy");
-            //Console.WriteLine("D-delte");
-            //Console.WriteLine("I-Information");
-
-            ////keyinfo = Console.ReadKey();
-            ////string chooise = Console.ReadLine();
-            //if (/*keyinfo.Key == ConsoleKey.I*/takeAll.forFunction=="i"||takeAll.forFunction=="I")
-            //{
-            //    Console.WriteLine("Выбирите фаил для получения информации(нажмите на цифру )");
-            //    int againNum = Convert.ToInt32(Console.ReadLine());
-            //    FileInfo file = new FileInfo(AllMenu[againNum]);
-            //    try
-            //    {
-            //        Console.WriteLine($"{file.Length} размер  kb");
-            //        Console.WriteLine(File.GetAttributes(AllMenu[againNum]));
-
-
-            //    }
-            //    catch (FileNotFoundException)
-            //    {
-            //        Console.WriteLine(File.GetAttributes(AllMenu[againNum]));
-            //    }
-
-            //}
-
-            //if (keyinfo.Key == ConsoleKey.C)
-            //{
-            //    Console.WriteLine("вибирите куда копирем(нажмите на число)");
-            //    int num = Convert.ToInt32(Console.ReadLine());
-            //    Console.WriteLine("вибирите что копируем");
-            //    int num2 = Convert.ToInt32(Console.ReadLine());
-
-            //    string add = Path.GetFileName(AllMenu[num2]);
-            //    Console.WriteLine($"{AllMenu[num2]}");
-            //    Console.WriteLine($"копируем в папку   {AllMenu[num]} элемент {AllMenu[num2]}");
-            //    //string path1=Path.Combine(AllMenu[num],add);
-
-            //    // File.Move(AllMenu[num2], Path.Combine(AllMenu[num], add));
-            //    try
-            //    {
-
-            //        File.Copy(AllMenu[num2], AllMenu[num]);
-            //    }
-            //    catch (IOException)
-            //    {
-            //        Directory.Move(AllMenu[num2], AllMenu[num]);
-            //    }
-            //}
-
-
-            //if (keyinfo.Key == ConsoleKey.D)
-            //{
-            //    Console.WriteLine("выберите файл который надо удалить ");
-            //    int num1 = Convert.ToInt32(Console.ReadLine());
-            //    File.Delete(AllMenu[num1]);
-            //}
-
-
-
+         
         }
 
         private static int MetodFOrWile(out string pathof, int patforfile, out bool succes)
